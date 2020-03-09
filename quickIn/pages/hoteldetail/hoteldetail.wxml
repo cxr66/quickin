@@ -1,0 +1,13 @@
+<!--pages/hoteldetail/hoteldetail.wxml-->
+<!--
+  @轮播图
+-->
+<swiper class="swiper" indicator-dots="true" autoplay="true" circular='true'>
+  <block wx:for="{{swiperList}}" wx:key="index">
+    <swiper-item>
+      <view class='li'>
+        <image src="{{ item.bannerPath }}" class='slide-image' mode='widthFix' lazy-load='true'></image>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

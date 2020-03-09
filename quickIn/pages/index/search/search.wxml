@@ -1,0 +1,29 @@
+<!--pages/index/search/search.wxml-->
+<view class="contain">
+  <!-- 上方搜索部分 -->
+  <view class='nav_top row'>
+    <input class='inline_block' data-blur="0" placeholder='搜索商品' value='{{ searchValue }}' bindblur="blur_set"></input>
+  </view>
+  <!-- 导航栏 -->
+  <scroll-view class="tab bg_fff" scroll-x scroll-left="{{tabScroll}}" scroll-with-animation="true">
+    <block wx:for="{{menuList}}" wx:key="index">
+      <view class="tab-item  {{currentTab == index ? 'active' : ''}}" style="width:{{ 100/menuList.length < 20?'150rpx': 100/menuList.length + '%'  }}" data-current="{{ index }}" bindtap='clickMenu'>{{item.name}}</view>
+    </block>
+  </scroll-view>
+
+  <!-- 页面 -->
+  <swiper class="content" style='height: {{windowHeight}}px' duration="1000" current="{{currentTab}}" bindchange="changeContent">
+    <swiper-item class="content-item" wx:for="{{menuList}}" wx:key="index">
+      <!-- 列表展示 -->
+      <ul>
+        <li wx:for="{{hotelList}}" wx:key="index" class='hotelItem bg_fff row text_overflow'>
+          <image src="{{ item.hotelImg }}" class='left-image' lazy-load='true'></image>
+          <view class="right-view">
+            <text class=" fn_28">{{ item.name }}</text>
+            <view class="text_overflow fn_20">{{ item.point }} 分 “{{ item.commentWord }}” <text>{{item.commentNum}}条评论</text></view>
+          </view>
+        </li>
+      </ul>
+    </swiper-item>
+  </swiper>
+</view>

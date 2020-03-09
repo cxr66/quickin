@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view class="index">
+  <!--
+    @轮播图
+   -->
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular='true' current-item-id="{{currentItemId}}">
+    <block wx:for="{{ swiperList }}" wx:key="index">
+      <swiper-item>
+        <view class='li'>
+          <image src="{{ item.bannerPath }}" class='slide-image' mode='widthFix' lazy-load='true'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="autoView section fn_24 ">
+    {{ form.location }}
+
+    <span class='column right'>
+      <image src="/img/icon-locate.png" class='locateImg' lazy-load='true'></image>
+      <text class="color default" style="line-height: 40rpx;">当前位置</text>
+    </span>
+  </view>
+
+  <view class="autoView section fn_24 ">
+    {{ form.location }}
+
+    <span class='column right'>
+      <image src="/img/icon-locate.png" class='locateImg' lazy-load='true'></image>
+      <text class="color default" style="line-height: 40rpx;">当前位置</text>
+    </span>
+  </view>
+  <view class="autoView section fn_24" bindtap="navigate" data-link='/pages/keyword/keyword'>
+    {{ form.hotel_name }}
+    <image src="/img/icon-right.png" class='rightImg right' lazy-load='true'></image>
+  </view>
+
+  <view class="autoView section fn_24 ">
+    价格/星级
+    <image src="/img/icon-right.png" class='rightImg right ' lazy-load='true'></image>
+  </view>
+
+  <view class="btn" bindtap="navigate" data-link='/pages/index/search/search'>
+    查询
+  </view>
+
+</view>
